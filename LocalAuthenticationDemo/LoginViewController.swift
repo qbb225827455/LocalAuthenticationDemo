@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    var blurEffectView: UIVisualEffectView!
+    var blurEffectView: UIVisualEffectView?
     
     @IBOutlet weak var backgroundImageView:UIImageView!
     @IBOutlet weak var loginView:UIView! {
@@ -36,15 +36,16 @@ class LoginViewController: UIViewController {
         backgroundImageView.image = UIImage(named: "background")
         let blurEffect = UIBlurEffect(style: .dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        backgroundImageView.addSubview(blurEffectView)
+        blurEffectView!.frame = view.bounds
+        backgroundImageView.addSubview(blurEffectView!)
         
         showLoginDialog()
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        blurEffectView.frame = view.bounds
+    override func viewWillLayoutSubviews() {
+        blurEffectView!.frame = view.bounds
     }
+    
     
     func showLoginDialog() {
         

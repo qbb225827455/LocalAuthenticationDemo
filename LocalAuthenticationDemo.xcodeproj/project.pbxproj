@@ -14,6 +14,7 @@
 		EE97711E28AD45B1008E54EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE97711D28AD45B1008E54EA /* Assets.xcassets */; };
 		EE97712128AD45B1008E54EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE97711F28AD45B1008E54EA /* LaunchScreen.storyboard */; };
 		EE97712928AD4962008E54EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE97712828AD4962008E54EA /* LoginViewController.swift */; };
+		EE97712C28AD4BB5008E54EA /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE97712B28AD4BB5008E54EA /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EE97712028AD45B1008E54EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE97712228AD45B1008E54EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE97712828AD4962008E54EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EE97712B28AD4BB5008E54EA /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE97712C28AD4BB5008E54EA /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			children = (
 				EE97711328AD45B1008E54EA /* LocalAuthenticationDemo */,
 				EE97711228AD45B1008E54EA /* Products */,
+				EE97712A28AD4BB5008E54EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +72,14 @@
 				EE97711828AD45B1008E54EA /* ViewController.swift */,
 			);
 			path = LocalAuthenticationDemo;
+			sourceTree = "<group>";
+		};
+		EE97712A28AD4BB5008E54EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE97712B28AD4BB5008E54EA /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +303,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y6QUADNDDA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocalAuthenticationDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -318,6 +331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y6QUADNDDA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocalAuthenticationDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
