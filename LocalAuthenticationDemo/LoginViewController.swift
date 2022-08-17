@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LoginViewController: UIViewController {
 
@@ -39,7 +40,8 @@ class LoginViewController: UIViewController {
         blurEffectView!.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView!)
         
-        showLoginDialog()
+        loginView.isHidden = false
+        authenticationWithBiometric()
     }
     
     override func viewWillLayoutSubviews() {
@@ -57,6 +59,25 @@ class LoginViewController: UIViewController {
             self.loginView.transform = CGAffineTransform.identity
             
         }, completion: nil)
+    }
+    
+    func authenticationWithBiometric() {
         
+        let localAuthContext = LAContext()
+        
+        var authError: NSError?
+        
+        
+        // 確認有無支援 TouchID/FaceID
+        if !localAuthContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+            
+            if let authError = authError {
+                print(authError.localizedDescription)
+            }
+            
+            showLoginDialog()
+            
+            return
+        }
     }
 }
