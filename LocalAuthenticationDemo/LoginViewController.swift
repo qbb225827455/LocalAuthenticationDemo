@@ -79,5 +79,46 @@ class LoginViewController: UIViewController {
             
             return
         }
+        
+        
+        // Biometrics authentication
+        localAuthContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Authentication is required to sign in XXX", reply: { success, error -> Void in
+            
+            // 失敗
+            if !success {
+                if let error = error {
+                    switch error {
+                    case LAError.authenticationFailed:
+                        print("Authentication failde")
+                    case LAError.passcodeNotSet:
+                        print("Passcode not set")
+                    case LAError.systemCancel:
+                        print("Authentication was canceled by system")
+                    case LAError.userCancel:
+                        print("Authentication was canceled by user")
+                    case LAError.biometryNotEnrolled:
+                        print("Authentication could not start because you haven't enrolled either TouchID or FaceID on your device")
+                    case LAError.biometryNotAvailable:
+                        print("Authentication could not start becase TouchID or FaceID  isn't available")
+                    case LAError.userFallback:
+                        print("User tapped the fallback bbutton (Enter Password)")
+                    default:
+                        print(error.localizedDescription)
+                    }
+                }
+                
+                OperationQueue.main.addOperation {
+                    self.showLoginDialog()
+                }
+            }
+            // 成功
+            else {
+                
+                print("Successfully authenticated")
+                OperationQueue.main.addOperation {
+                    self.performSegue(withIdentifier: "showHomeView", sender: nil)
+                }
+            }
+        })
     }
 }
